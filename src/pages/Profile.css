@@ -1,0 +1,345 @@
+.profile-page {
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+/* Sidebar Styling */
+.profile-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.user-card {
+  background: var(--bg-card);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.user-avatar {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, var(--gold-primary), #8B732E);
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 5px 15px rgba(201, 168, 76, 0.4);
+}
+
+.user-card h3 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.user-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.user-since {
+  font-size: 0.8rem;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.profile-nav {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav-item {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border-radius: 12px;
+  width: 100%;
+  text-align: left;
+  transition: var(--transition);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.nav-item:hover, .nav-item.active {
+  background: rgba(201, 168, 76, 0.1);
+  color: var(--gold-primary);
+}
+
+.nav-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.05);
+  margin: 1rem 0;
+}
+
+.logout-btn {
+  color: #ff4d4d;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 77, 77, 0.1);
+  color: #ff4d4d;
+}
+
+/* Content Styling */
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.profile-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.profile-stat-card {
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: var(--transition);
+}
+
+.profile-stat-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(201, 168, 76, 0.3);
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(201, 168, 76, 0.1);
+  color: var(--gold-primary);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-info span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+
+.stat-info h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0;
+}
+
+.profile-section {
+  background: var(--bg-card);
+  padding: 3rem;
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.section-header p {
+  color: var(--text-muted);
+}
+
+.personal-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.info-box {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.info-box label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.8rem;
+}
+
+.info-box p {
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.actions-footer {
+  margin-top: 3rem;
+}
+
+/* Orders List Styling */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.order-item-card {
+  background: rgba(255,255,255,0.02);
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: var(--transition);
+}
+
+.order-item-card:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.order-header {
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.order-id {
+  color: var(--gold-primary);
+  font-weight: 600;
+  font-family: var(--font-body);
+}
+
+.order-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.status-pill {
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.status-pill.pending { background: rgba(243, 156, 18, 0.1); color: #f39c12; border: 1px solid rgba(243, 156, 18, 0.3); }
+.status-pill.delivered { background: rgba(46, 204, 113, 0.1); color: #2ecc71; border: 1px solid rgba(46, 204, 113, 0.3); }
+
+.order-details-row {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  align-items: center;
+  gap: 2rem;
+}
+
+.items-summary strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.items-summary p {
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.order-amount span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+  text-align: right;
+}
+
+.order-amount h3 {
+  color: var(--gold-primary);
+  font-size: 1.5rem;
+  text-align: right;
+  margin: 0;
+}
+
+.empty-orders {
+  text-align: center;
+  padding: 4rem 0;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .profile-layout {
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+@media (max-width: 992px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+  .profile-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-section {
+    padding: 2rem;
+  }
+  .personal-info-grid {
+    grid-template-columns: 1fr;
+  }
+  .order-details-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .order-amount h3, .order-amount span {
+    text-align: left;
+  }
+}

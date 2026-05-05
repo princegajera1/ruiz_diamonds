@@ -1,0 +1,5 @@
+To reset your database:
+1. Stop the server (Ctrl+C in terminal)
+2. Delete the file: data/database.sqlite
+3. Run: npm run dev:fullstack
+The server will recreate the database with the correct schema and seed 40 products.

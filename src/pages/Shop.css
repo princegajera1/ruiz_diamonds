@@ -1,0 +1,122 @@
+.shop-page .page-header {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.shop-page .subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.shop-layout {
+  display: flex;
+  gap: 3rem;
+}
+
+.shop-filters {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.filter-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.filter-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  color: var(--text-light);
+  margin: 0;
+}
+
+.filter-group {
+  margin-bottom: 2rem;
+}
+
+.filter-group h4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-light);
+  cursor: pointer;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.filter-options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.filter-options input[type="checkbox"] {
+  accent-color: var(--gold-primary);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.shop-main {
+  flex: 1;
+}
+
+.shop-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+}
+
+.sort-by select {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  padding: 0.5rem 1rem;
+  outline: none;
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.shop-products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px 20px;
+}
+
+@media (max-width: 992px) {
+  .shop-layout {
+    flex-direction: column;
+  }
+  
+  .shop-filters {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .shop-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .shop-products-grid {
+    grid-template-columns: 1fr;
+  }
+}
