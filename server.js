@@ -89,30 +89,22 @@ const db = new sqlite3.Database(join(dataDir, 'database.sqlite'), (err) => {
           
           const categoryAssets = {
             'Diamond': [
-              '/src/assets/diamond_necklace_regal.png', '/src/assets/diamond_bracelet_tennis.png',
-              '/src/assets/diamond_ring_princess_cut_solitaire.png', '/src/assets/diamond_pendant_teardrop.png',
               '/src/assets/Diamond Jewelry1.jpg', '/src/assets/Diamond Jewelry2.jpg',
               '/src/assets/Diamond Jewelry3.jpg', '/src/assets/Diamond Jewelry4.jpg',
               '/src/assets/Diamond Jewelry5.jpg'
             ],
             'Gold': [
-              '/src/assets/gold_bangles_temple.png', '/src/assets/gold_necklace_choker.png',
-              '/src/assets/gold_ring_band_matte.png', '/src/assets/gold_chain_rope_thick_luxury_finish.png',
               '/src/assets/Gold Necklaces1.jpg', '/src/assets/Gold Necklaces2.jpg',
               '/src/assets/Gold Necklaces3.jpg', '/src/assets/Gold Necklaces4.jpg',
               '/src/assets/Gold Necklaces5.jpg'
             ],
             'Ring': [
-              '/src/assets/ring_gold_plain.png', '/src/assets/ring_ruby_gold.png',
-              '/src/assets/ring_black_onyx.png', '/src/assets/ring_diamond_solitaire.png',
-              '/src/assets/ring_turquoise_silver.png', '/src/assets/ring_sapphire_platinum.png',
               '/src/assets/Rings1.jpg', '/src/assets/Rings2.jpg',
               '/src/assets/Rings3.jpg', '/src/assets/Rings4.jpg',
               '/src/assets/Rings5.jpg'
             ],
             'Earrings': [
-              '/src/assets/earrings_gold_jhumka.png', '/src/assets/earrings_diamond_studs.png',
-              '/src/assets/earrings_modern_hoops.png', '/src/assets/Earrings1.jpg',
+              '/src/assets/Earrings1.jpg',
               '/src/assets/Earrings2.jpg', '/src/assets/Earrings3.jpg',
               '/src/assets/Earrings4.jpg', '/src/assets/Earrings5.jpg'
             ]
@@ -291,30 +283,22 @@ app.post('/api/system/reseed', (req, res) => {
     db.run('DELETE FROM products');
     const categoryAssets = {
       'Diamond': [
-        '/src/assets/diamond_necklace_regal.png', '/src/assets/diamond_bracelet_tennis.png',
-        '/src/assets/diamond_ring_princess_cut_solitaire.png', '/src/assets/diamond_pendant_teardrop.png',
         '/src/assets/Diamond Jewelry1.jpg', '/src/assets/Diamond Jewelry2.jpg',
         '/src/assets/Diamond Jewelry3.jpg', '/src/assets/Diamond Jewelry4.jpg',
         '/src/assets/Diamond Jewelry5.jpg'
       ],
       'Gold': [
-        '/src/assets/gold_bangles_temple.png', '/src/assets/gold_necklace_choker.png',
-        '/src/assets/gold_ring_band_matte.png', '/src/assets/gold_chain_rope_thick_luxury_finish.png',
         '/src/assets/Gold Necklaces1.jpg', '/src/assets/Gold Necklaces2.jpg',
         '/src/assets/Gold Necklaces3.jpg', '/src/assets/Gold Necklaces4.jpg',
         '/src/assets/Gold Necklaces5.jpg'
       ],
       'Ring': [
-        '/src/assets/ring_gold_plain.png', '/src/assets/ring_ruby_gold.png',
-        '/src/assets/ring_black_onyx.png', '/src/assets/ring_diamond_solitaire.png',
-        '/src/assets/ring_turquoise_silver.png', '/src/assets/ring_sapphire_platinum.png',
         '/src/assets/Rings1.jpg', '/src/assets/Rings2.jpg',
         '/src/assets/Rings3.jpg', '/src/assets/Rings4.jpg',
         '/src/assets/Rings5.jpg'
       ],
       'Earrings': [
-        '/src/assets/earrings_gold_jhumka.png', '/src/assets/earrings_diamond_studs.png',
-        '/src/assets/earrings_modern_hoops.png', '/src/assets/Earrings1.jpg',
+        '/src/assets/Earrings1.jpg',
         '/src/assets/Earrings2.jpg', '/src/assets/Earrings3.jpg',
         '/src/assets/Earrings4.jpg', '/src/assets/Earrings5.jpg'
       ]
