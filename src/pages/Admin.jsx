@@ -49,7 +49,8 @@ const Admin = () => {
     if (!window.confirm('This will wipe all current products and restore the professional 40-item catalog. Proceed?')) return;
     setSystemLoading(true);
     try {
-      const response = await fetch('http://localhost:5000/api/system/reseed', { method: 'POST' });
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+      const response = await fetch(`${API_URL}/system/reseed`, { method: 'POST' });
       if (response.ok) {
         alert('Database successfully re-seeded!');
         fetchProducts();
@@ -74,7 +75,8 @@ const Admin = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/stats');
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+        const response = await fetch(`${API_URL}/stats`);
         const data = await response.json();
         setStats(data);
       } catch (err) {

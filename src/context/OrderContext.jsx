@@ -4,7 +4,7 @@ const OrderContext = createContext();
 
 export const useOrders = () => useContext(OrderContext);
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 export const OrderProvider = ({ children }) => {
   const [orders, setOrders] = useState([]);
