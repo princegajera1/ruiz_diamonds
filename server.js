@@ -19,11 +19,14 @@ if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir);
 }
 
-const db = new sqlite3.Database(join(dataDir, 'database.sqlite'), (err) => {
+// On Vercel, we use /tmp for the SQLite database as the rest of the filesystem is read-only
+const dbPath = process.env.VERCEL ? join('/tmp', 'database.sqlite') : join(dataDir, 'database.sqlite');
+const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {
     console.error('Error connecting to database:', err.message);
   } else {
-    console.log('Connected to the SQLite database.');
+    console.log(`Connected to the SQLite database at ${dbPath}`);
+
     
     db.serialize(() => {
       // Step 1: Create products table
@@ -89,24 +92,24 @@ const db = new sqlite3.Database(join(dataDir, 'database.sqlite'), (err) => {
           
           const categoryAssets = {
             'Diamond': [
-              '/src/assets/Diamond Jewelry1.jpg', '/src/assets/Diamond Jewelry2.jpg',
-              '/src/assets/Diamond Jewelry3.jpg', '/src/assets/Diamond Jewelry4.jpg',
-              '/src/assets/Diamond Jewelry5.jpg'
+              '/assets/Diamond Jewelry1.jpg', '/assets/Diamond Jewelry2.jpg',
+              '/assets/Diamond Jewelry3.jpg', '/assets/Diamond Jewelry4.jpg',
+              '/assets/Diamond Jewelry5.jpg'
             ],
             'Gold': [
-              '/src/assets/Gold Necklaces1.jpg', '/src/assets/Gold Necklaces2.jpg',
-              '/src/assets/Gold Necklaces3.jpg', '/src/assets/Gold Necklaces4.jpg',
-              '/src/assets/Gold Necklaces5.jpg'
+              '/assets/Gold Necklaces1.jpg', '/assets/Gold Necklaces2.jpg',
+              '/assets/Gold Necklaces3.jpg', '/assets/Gold Necklaces4.jpg',
+              '/assets/Gold Necklaces5.jpg'
             ],
             'Ring': [
-              '/src/assets/Rings1.jpg', '/src/assets/Rings2.jpg',
-              '/src/assets/Rings3.jpg', '/src/assets/Rings4.jpg',
-              '/src/assets/Rings5.jpg'
+              '/assets/Rings1.jpg', '/assets/Rings2.jpg',
+              '/assets/Rings3.jpg', '/assets/Rings4.jpg',
+              '/assets/Rings5.jpg'
             ],
             'Earrings': [
-              '/src/assets/Earrings1.jpg',
-              '/src/assets/Earrings2.jpg', '/src/assets/Earrings3.jpg',
-              '/src/assets/Earrings4.jpg', '/src/assets/Earrings5.jpg'
+              '/assets/Earrings1.jpg',
+              '/assets/Earrings2.jpg', '/assets/Earrings3.jpg',
+              '/assets/Earrings4.jpg', '/assets/Earrings5.jpg'
             ]
           };
 
@@ -283,24 +286,24 @@ app.post('/api/system/reseed', (req, res) => {
     db.run('DELETE FROM products');
     const categoryAssets = {
       'Diamond': [
-        '/src/assets/Diamond Jewelry1.jpg', '/src/assets/Diamond Jewelry2.jpg',
-        '/src/assets/Diamond Jewelry3.jpg', '/src/assets/Diamond Jewelry4.jpg',
-        '/src/assets/Diamond Jewelry5.jpg'
+        '/assets/Diamond Jewelry1.jpg', '/assets/Diamond Jewelry2.jpg',
+        '/assets/Diamond Jewelry3.jpg', '/assets/Diamond Jewelry4.jpg',
+        '/assets/Diamond Jewelry5.jpg'
       ],
       'Gold': [
-        '/src/assets/Gold Necklaces1.jpg', '/src/assets/Gold Necklaces2.jpg',
-        '/src/assets/Gold Necklaces3.jpg', '/src/assets/Gold Necklaces4.jpg',
-        '/src/assets/Gold Necklaces5.jpg'
+        '/assets/Gold Necklaces1.jpg', '/assets/Gold Necklaces2.jpg',
+        '/assets/Gold Necklaces3.jpg', '/assets/Gold Necklaces4.jpg',
+        '/assets/Gold Necklaces5.jpg'
       ],
       'Ring': [
-        '/src/assets/Rings1.jpg', '/src/assets/Rings2.jpg',
-        '/src/assets/Rings3.jpg', '/src/assets/Rings4.jpg',
-        '/src/assets/Rings5.jpg'
+        '/assets/Rings1.jpg', '/assets/Rings2.jpg',
+        '/assets/Rings3.jpg', '/assets/Rings4.jpg',
+        '/assets/Rings5.jpg'
       ],
       'Earrings': [
-        '/src/assets/Earrings1.jpg',
-        '/src/assets/Earrings2.jpg', '/src/assets/Earrings3.jpg',
-        '/src/assets/Earrings4.jpg', '/src/assets/Earrings5.jpg'
+        '/assets/Earrings1.jpg',
+        '/assets/Earrings2.jpg', '/assets/Earrings3.jpg',
+        '/assets/Earrings4.jpg', '/assets/Earrings5.jpg'
       ]
     };
     const metals = ['18KT Gold', '22KT Yellow Gold', 'Platinum', '18KT White Gold', '14KT Gold'];
@@ -322,6 +325,11 @@ app.post('/api/system/reseed', (req, res) => {
   res.json({ message: "Reseed completed successfully" });
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+  });
+}
+
+export default app;
+

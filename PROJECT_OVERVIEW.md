@@ -45,8 +45,9 @@ The project is architected for high availability and performance:
 | Component | Platform | Status |
 | :--- | :--- | :--- |
 | **Frontend** | Vercel | 🟢 Live / Optimized |
-| **Backend API** | Render | 🟢 Live / Connected |
-| **Database** | SQLite (on Render) | 🟢 Active |
+| **Backend API** | Vercel (Functions) | 🟢 Live / Connected |
+| **Database** | SQLite (/tmp on Vercel) | 🟢 Active |
+
 
 ---
 

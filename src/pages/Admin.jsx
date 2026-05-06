@@ -9,6 +9,7 @@ import { useProducts } from '../context/ProductContext';
 import { useOrders } from '../context/OrderContext';
 import { useAuth } from '../context/AuthContext';
 import { Link, Navigate } from 'react-router-dom';
+import { API_URL } from '../apiConfig';
 import './Admin.css';
 import './AdminTable.css';
 
@@ -49,7 +50,6 @@ const Admin = () => {
     if (!window.confirm('This will wipe all current products and restore the professional 40-item catalog. Proceed?')) return;
     setSystemLoading(true);
     try {
-      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
       const response = await fetch(`${API_URL}/system/reseed`, { method: 'POST' });
       if (response.ok) {
         alert('Database successfully re-seeded!');
@@ -75,7 +75,6 @@ const Admin = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
         const response = await fetch(`${API_URL}/stats`);
         const data = await response.json();
         setStats(data);
